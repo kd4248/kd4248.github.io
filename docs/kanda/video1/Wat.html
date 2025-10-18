@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kanda Video</title>
+  <title>Gaming Video - Step 1</title>
 
   <style>
     body {
@@ -28,6 +28,8 @@
       letter-spacing: 2px;
     }
 
+    header p { color: #ffdede; margin-top:8px; }
+
     main {
       max-width: 900px;
       margin: 40px auto;
@@ -49,15 +51,7 @@
     }
 
     .ad-box {
-      background: #2a2a2a;
-      border: 2px dashed #999;
-      text-align: center;
-      padding: 40px;
-      margin: 20px auto;
-      font-style: italic;
-      border-radius: 8px;
-      color: #ccc;
-      max-width: 1200px;
+      display:none; /* removed ad boxes */
     }
 
     /* Timer */
@@ -90,6 +84,7 @@
       transition: 0.3s;
       font-size: 18px;
       color: #fff;
+      border: none;
     }
 
     /* Real Continue button (hidden initially) */
@@ -122,15 +117,76 @@
     footer a { color: #ff6666; text-decoration: none; }
     footer a:hover { text-decoration: underline; }
 
-    /* Responsive Video */
+    /* Responsive Video / 16:9 poster */
+    .video-wrapper {
+      width: 100%;
+      max-width: 900px;
+      margin: 20px auto;
+    }
+
+    .preplay {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 ratio */
+      background: #000;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+    }
+
+    .preplay img.poster {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .play-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.45));
+    }
+
+    .play-btn {
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .15s ease;
+      border: 3px solid rgba(255,255,255,0.12);
+    }
+
+    .play-btn:hover { transform: scale(1.06); }
+
+    .play-btn:after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-left: 22px solid #fff;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      margin-left: 6px;
+    }
+
+    /* Actual video element (hidden until ad played) */
     .video-container {
-      margin: 20px 0;
-      text-align: center;
+      display:none;
+      margin-top:20px;
+      text-align:center;
     }
 
     .video-container video {
       width: 100%;
-      max-width: 700px;
+      max-width: 900px;
       border-radius: 10px;
     }
 
@@ -147,127 +203,91 @@
       width: 24px;
       height: 24px;
     }
+
+    /* Logo small */
+    .logo {
+      display:inline-block;
+      width:64px;
+      height:64px;
+      background: url('logo.png') center/contain no-repeat;
+      vertical-align: middle;
+      margin-right:10px;
+    }
+
   </style>
 
-  <!-- Head Ad Script -->
-<script type='text/javascript' src='//foreststobaccodecember.com/48/91/ac/4891ac14a0d27f80046b4fb9cf6a6b01.js'></script>
 </head>
 <body>
   
   <header>
-    <h1>Kanda Video</h1>
-    <p>Welcome baby!💋💦</p>
+    <h1><span class="logo" aria-hidden="true"></span>Gaming Hub</h1>
+    <p>Welcome to Gaming Hub — your source for gameplay, walkthroughs and tournaments</p>
   </header>
 
   <main>
-    <p>Nepali Kanda is a fresh and unique platform dedicated to adult content created and shared for Nepali viewers. This project is my very first self-developed website, built step by step to provide safe, accessible, and organized adult videos. Unlike fake platforms, Nepali Kanda is built with transparency and honesty at its core.</p>
+    <p>Gaming Hub is a fresh platform dedicated to gaming videos, walkthroughs, and community events targeted at gamers from India, Nepal and worldwide. This is a re-branded, family-friendly gaming site offering curated gameplay, tips, and guides — built to give viewers a smooth experience and quick navigation to the next step.</p>
 
     <!-- Timer display -->
-<div id="timer">Generating your link. This may take up to <span id="count">8</span> seconds.</div>
+    <div id="timer">Preparing your gaming session. This may take up to <span id="count">8</span> seconds.</div>
 
+    <!-- Video area: 16:9 poster + pre-roll flow -->
+    <div class="video-wrapper">
+      <!-- Poster with play button (click to start pre-roll ad then main video) -->
+      <div class="preplay" id="preplay">
+        <!-- Replace poster.jpg with your own thumbnail -->
+        <img class="poster" src="poster.jpg" alt="Gameplay thumbnail">
+        <div class="play-overlay" id="playOverlay" title="Play video">
+          <div class="play-btn" id="playBtn" aria-hidden="true"></div>
+        </div>
+      </div>
 
-    <!-- Ads Box -->
-    
-      <script async="async" data-cfasync="false" src="//foreststobaccodecember.com/82059b721a0802c6db6c59e17354e157/invoke.js"></script>
-      <div id="container-82059b721a0802c6db6c59e17354e157"></div>
-    
+      <!-- Hidden video container: first play pre-roll ad, then main video -->
+      <div class="video-container" id="videoContainer">
+        <!-- Pre-roll ad video element (placeholder). Replace src with your pre-roll ad file or leave empty and integrate VAST here. -->
+        <video id="adVideo" playsinline webkit-playsinline preload="auto"></video>
 
-    <h2>1. Advanced Character Interactions</h2>
-    <p>Adult games in Step 7 feature deeper character interaction mechanics. Players can build complex relationships, influence storylines, and unlock unique scenes. These interactions enhance narrative depth, offering players meaningful choices that shape the game’s outcome and encourage multiple playthroughs.</p>
-
-    <script type="text/javascript">
-	atOptions = {
-		'key' : '9cc5b0a8ebec31118de4c89691c83925',
-		'format' : 'iframe',
-		'height' : 250,
-		'width' : 300,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//foreststobaccodecember.com/9cc5b0a8ebec31118de4c89691c83925/invoke.js"></script>
-    <!-- Responsive Video -->
-    <div class="video-container">
-      <video controls>
-        <source src="../../videoxx/video1.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+        <!-- Main content video -->
+        <video id="mainVideo" controls style="display:none;" preload="metadata">
+          <source src="../../videoxx/video1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
     </div>
 
+    <!-- Gaming content sections (kept structure similar to original) -->
 
-    <h2>2. Immersive Soundscapes</h2>
-    <p>Realistic sound design increases immersion. Dynamic music, character voices, and environmental audio cues engage players on multiple sensory levels. This enhances tension, emotion, and overall enjoyment while complementing mature content to create a fully engaging experience.</p>
+<h2>6. Game AI & Enemy Behavior</h2>
+<p>Modern games use sophisticated AI systems to create dynamic and challenging opponents. Understanding enemy patterns, adaptive behavior, and AI tactics can give players a strategic advantage. Learning how AI responds to player actions allows for better planning, faster reaction times, and optimized gameplay strategies across different game genres.</p>
 
-    <script type="text/javascript">
-	atOptions = {
-		'key' : '9cc5b0a8ebec31118de4c89691c83925',
-		'format' : 'iframe',
-		'height' : 250,
-		'width' : 300,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//foreststobaccodecember.com/9cc5b0a8ebec31118de4c89691c83925/invoke.js"></script>
-    <h2>3. Exploration and Open Environments</h2>
-    <p>Open-world or exploratory gameplay gives adult players freedom to navigate environments, discover secrets, and engage with content at their own pace. Exploration encourages curiosity, enhances engagement, and allows players to interact with game worlds more personally and creatively.</p>
+<h2>7. Speedrunning Techniques</h2>
+<p>Speedrunning challenges players to complete games as quickly as possible. This requires mastering precise mechanics, exploiting game glitches, and memorizing levels. Players study world records, experiment with shortcuts, and develop innovative approaches to minimize time. The community-driven aspect of speedrunning also encourages sharing tips, comparing strategies, and fostering friendly competition.</p>
 
-    <script type="text/javascript">
-	atOptions = {
-		'key' : '9cc5b0a8ebec31118de4c89691c83925',
-		'format' : 'iframe',
-		'height' : 250,
-		'width' : 300,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//foreststobaccodecember.com/9cc5b0a8ebec31118de4c89691c83925/invoke.js"></script>
-    <h2>4. Achievements and Progression</h2>
-    <p>Reward systems and achievements motivate players to progress and explore all game features. Unlockables and skill development encourage repeated play and strategic thinking, providing tangible recognition for accomplishments and enhancing satisfaction in mature gameplay.</p>
+<h2>8. Game Modding & Customization</h2>
+<p>Game modding allows players to alter content, mechanics, or visuals to enhance their gaming experience. Modding can introduce new levels, characters, or gameplay styles. Learning how to safely install and create mods gives players creative freedom, extends game longevity, and encourages collaboration within modding communities.</p>
 
-    <script type="text/javascript">
-	atOptions = {
-		'key' : '9cc5b0a8ebec31118de4c89691c83925',
-		'format' : 'iframe',
-		'height' : 250,
-		'width' : 300,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//foreststobaccodecember.com/9cc5b0a8ebec31118de4c89691c83925/invoke.js"></script>
-    <h2>5. Ethical Decision Making</h2>
-    <p>Step 7 adult games introduce complex moral choices. Players must navigate scenarios with consequences, affecting character relationships and story outcomes. This challenges critical thinking and creates a more reflective and engaging experience for adult audiences.</p>
+<h2>9. Esports Career Path</h2>
+<p>Competitive gaming offers professional opportunities for skilled players. Understanding tournament structures, sponsorships, team management, and streaming can help aspiring esports athletes build a career. Maintaining high-level performance, developing strategies, and networking with the community are essential for long-term success in the esports industry.</p>
 
-    <script type="text/javascript">
-	atOptions = {
-		'key' : '9cc5b0a8ebec31118de4c89691c83925',
-		'format' : 'iframe',
-		'height' : 250,
-		'width' : 300,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//foreststobaccodecember.com/9cc5b0a8ebec31118de4c89691c83925/invoke.js"></script>
+<h2>10. VR & AR Gaming Trends</h2>
+<p>Virtual reality (VR) and augmented reality (AR) bring immersive experiences to gaming. Learning how to navigate VR worlds, optimize comfort, and interact with AR overlays enhances gameplay. These technologies offer new storytelling methods, training simulations, and interactive experiences that push the boundaries of traditional gaming.</p>
 
-    <!-- Buttons (Fake Top, Fake Middle, Real Bottom) -->
+<h2>11. Gaming Hardware & Optimization</h2>
+<p>Choosing the right hardware is crucial for smooth gameplay. Understanding CPU, GPU, RAM, and display specifications helps players optimize performance. Tips on overclocking, cooling, and peripheral selection ensure games run efficiently, delivering higher frame rates, better graphics, and an overall improved gaming experience.</p>
+
+<h2>12. Game Streaming & Content Creation</h2>
+<p>Streaming games on platforms like Twitch or YouTube allows gamers to build communities and share gameplay. Understanding audience engagement, streaming software, content planning, and monetization strategies helps streamers grow their channels. Creating quality content and interacting with viewers fosters a loyal fanbase while turning gaming into a potential career.</p>
+
+    <!-- Buttons (Fake Top, Real Bottom, Fake Middle) -->
     <div class="button-container">
       <button class="button" id="fake1">Continue</button>
       <button class="button" id="realContinue">Continue</button>
       <button class="button" id="fake2">Continue</button>
     </div>
-    <script type="text/javascript">
-	atOptions = {
-		'key' : '9cc5b0a8ebec31118de4c89691c83925',
-		'format' : 'iframe',
-		'height' : 250,
-		'width' : 300,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//foreststobaccodecember.com/9cc5b0a8ebec31118de4c89691c83925/invoke.js"></script>
 
     <!-- Community & Contact -->
     <section class="community">
       <h2>Community & Contact</h2>
-      <p>If you want to stay connected, updates will be posted in our Telegram channel. For questions, suggestions, or issues, feel free to email me:</p>
+      <p>Stay connected — join our community for updates, events, and tournaments. For questions, suggestions, or support, use the contact links below.</p>
       <p>
         <a href="https://www.facebook.com/share/18bbW7JyDN/" target="_blank" style="color:#3b5998;">
           <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"> Visit our Facebook Page
@@ -280,34 +300,34 @@
       </p>
     </section>
 
-
   </main>
 
   <footer>
-    <p>&copy; 2025 Nepali Kanda. All rights reserved.</p>
-    <p><strong>18 U.S.C. 2257 Compliance Statement:</strong> All models appearing on this website are 18 years of age or older at the time of production. Nepali Kanda does not host or produce any videos on its servers. All videos are linked from third-party services and are publicly available.</p>
+    <p>&copy; 2025 Gaming Hub. All rights reserved.</p>
+    <p><strong>Site Notice:</strong> This site curates links to games and gameplay videos. We do not host third-party content on our servers.</p>
     <p><strong>DMCA Contact:</strong> If you are a copyright holder and wish to make a removal request, please contact us at 
       <a href="mailto:p1ussyl1over@gmail.com">nepalikanda4248@gmail.com</a>.
     </p>
   </footer>
 
-  <!-- Smart Link Script -->
+  <!-- ==== Scripts (ads removed) ==== -->
   <script>
-  // Keep Smartlink active for fake buttons if you want
-  const smartLink = "https://foreststobaccodecember.com/ue6fbh7t?key=afd82614b701ad72363e34ad85809f94";
+    // smartLink replaced with '#'
+    const smartLink = "#";
 
-  // Fake buttons still open Smartlink
-  document.getElementById('fake1').addEventListener('click', () => { window.open(smartLink, "_blank"); });
-  document.getElementById('fake2').addEventListener('click', () => { window.open(smartLink, "_blank"); });
+    // Fake buttons: open '#'
+    document.getElementById('fake1').addEventListener('click', () => { window.open(smartLink, "_blank"); });
+    document.getElementById('fake2').addEventListener('click', () => { window.open(smartLink, "_blank"); });
 
-  // Real "Continue" button → only one click now
-  const nextStep = "Wbt.html";
-  const realContinueBtn = document.getElementById('realContinue');
+    // Real "Continue" button -> goes to the next step (keeps your original target)
+    const nextStep = "Wbt.html";
+    const realContinueBtn = document.getElementById('realContinue');
 
-  realContinueBtn.addEventListener('click', () => {
-    window.location.href = nextStep; // directly goes to Step 2
-  });
-    // Timer: 1 displayed sec = 2 real sec
+    realContinueBtn.addEventListener('click', () => {
+      window.location.href = nextStep;
+    });
+
+    // Timer: 1 displayed sec = ~1.3 real sec as in original (keeps feel)
     let timeLeft = 8;
     const countElem = document.getElementById('count');
     const timerElem = document.getElementById('timer');
@@ -324,10 +344,75 @@
         realContinueBtn.style.display = "block"; // show the real continue button
       }
     }, 1300);
+
+    /* ===========================
+       Pre-roll then main video flow
+       ===========================
+       Behavior:
+       1. User clicks poster/play button
+       2. The pre-roll <video id="adVideo"> loads and plays (this is the pre-roll ad)
+          - You can set adVideo.src to a hosted ad video file, or integrate your ad provider's VAST/SDK here.
+       3. When pre-roll ends, the ad element is hidden and mainVideo is shown+played.
+       4. If you prefer to integrate VAST: replace the adVideo section with your VAST JS SDK call,
+          and call `onAdComplete()` when the ad finishes or is skipped.
+    */
+
+    const preplay = document.getElementById('preplay');
+    const playOverlay = document.getElementById('playOverlay');
+    const adVideo = document.getElementById('adVideo');
+    const mainVideo = document.getElementById('mainVideo');
+    const videoContainer = document.getElementById('videoContainer');
+
+    // Example: default placeholder pre-roll video file (you can remove it and integrate VAST/SDK)
+    // Leave empty if using VAST or ad provider; then inject via ad provider code.
+    // adVideo.src = "preroll_ad.mp4"; // <-- Replace with actual pre-roll ad file if you have one
+
+    function onAdComplete() {
+      // Hide ad video, show main video and play
+      adVideo.style.display = "none";
+      mainVideo.style.display = "block";
+      mainVideo.play().catch(() => {/* autoplay may be blocked; user can press play */});
+    }
+
+    // If adVideo has a src (file), listen for ended event
+    adVideo.addEventListener('ended', onAdComplete);
+
+    // If using an ad SDK (VAST), call onAdComplete() in the SDK's ad finished callback.
+    // ---------------------------
+    // Example placeholder for VAST integration (replace with real code):
+    // ---------------------------
+    // (1) Put your VAST / ad provider JS here and target element id 'adVideo' or call onAdComplete() when ad finishes.
+    //
+    // Example comment:
+    // -- Insert VAST SDK here --
+    // Example pseudocode:
+    //   vastPlayer.playAd({ elementId: 'adVideo', vastUrl: 'https://example.com/vast.xml' })
+    //     .then(() => onAdComplete())
+    //     .catch(() => { console.warn('Ad failed, skip to main'); onAdComplete(); });
+    //
+    // ---------------------------
+
+    // User click starts the flow:
+    playOverlay.addEventListener('click', () => {
+      // Hide poster and show video container
+      preplay.style.display = "none";
+      videoContainer.style.display = "block";
+
+      // If you provide an ad video file, set and play it:
+      if (adVideo.src && adVideo.src.trim() !== "") {
+        adVideo.style.display = "block";
+        adVideo.play().catch(() => {
+          // autoplay blocked; show play controls for the ad
+          adVideo.controls = true;
+        });
+      } else {
+        // No direct ad video provided — call your VAST/ad provider here
+        // If you don't have ad provider, skip to main video:
+        onAdComplete();
+      }
+    });
+
   </script>
 
-  <!-- Body Ad Script -->
-  <script type='text/javascript' src='//foreststobaccodecember.com/64/fc/f3/64fcf31361724f7ae6d406a6e1d14764.js'></script>
 </body>
 </html>
-
