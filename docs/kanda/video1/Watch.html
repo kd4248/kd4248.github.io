@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Step 4 - Kanda Videos</title>
+  <title>Gaming Video - Step 4</title>
 
   <style>
     body {
@@ -28,6 +28,8 @@
       letter-spacing: 2px;
     }
 
+    header p { color: #ffdede; margin-top:8px; }
+
     main {
       max-width: 900px;
       margin: 40px auto;
@@ -48,20 +50,6 @@
       padding-left: 12px;
     }
 
-    .ad-box {
-      background: #2a2a2a;
-      border: 2px dashed #999;
-      text-align: center;
-      padding: 20px;
-      margin: 20px auto;
-      font-style: italic;
-      border-radius: 8px;
-      color: #ccc;
-      max-width: 100%;
-      box-sizing: border-box;
-    }
-
-    /* Timer */
     #timer {
       text-align: center;
       font-size: 20px;
@@ -70,7 +58,6 @@
       font-weight: bold;
     }
 
-    /* Buttons */
     .button-container {
       text-align: center;
       margin: 50px 0;
@@ -91,24 +78,23 @@
       transition: 0.3s;
       font-size: 18px;
       color: #fff;
+      border: none;
     }
 
-    /* Real Continue button (hidden initially) */
     #realContinue {
-      background: linear-gradient(45deg, #ffcc00, #ffaa00); /* yellow gradient */
+      background: linear-gradient(45deg, #ff8c00, #ff4500);
       display: none;
     }
     #realContinue:hover {
-      background: linear-gradient(45deg, #ffaa00, #ffcc00);
+      background: linear-gradient(45deg, #ff4500, #ff8c00);
       transform: scale(1.05);
     }
 
-    /* Fake buttons */
     #fake1 { background-color: #00ccff; }
     #fake1:hover { background-color: #0099cc; transform: scale(1.05); }
 
-    #fake2 { background-color: #ff6666; }
-    #fake2:hover { background-color: #ff3333; transform: scale(1.05); }
+    #fake2 { background-color: #ffcc00; color: #000; }
+    #fake2:hover { background-color: #ffaa00; transform: scale(1.05); }
 
     footer {
       background-color: #1f1f1f;
@@ -123,107 +109,134 @@
     footer a { color: #ff6666; text-decoration: none; }
     footer a:hover { text-decoration: underline; }
 
-    section a img {
-      width: 32px;
-      height: 32px;
-      margin-right: 10px;
-      vertical-align: middle;
+    .video-wrapper {
+      width: 100%;
+      max-width: 900px;
+      margin: 20px auto;
     }
-    .community img {
-      width: 24px;
-      height: 24px;
-    } 
-  </style>
 
-  <!-- Head Ad Script -->
-<script type='text/javascript' src='//foreststobaccodecember.com/48/91/ac/4891ac14a0d27f80046b4fb9cf6a6b01.js'></script>
+    .preplay {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      background: #000;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+    }
+
+    .preplay img.poster {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .play-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.45));
+    }
+
+    .play-btn {
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .15s ease;
+      border: 3px solid rgba(255,255,255,0.12);
+    }
+
+    .play-btn:hover { transform: scale(1.06); }
+
+    .play-btn:after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-left: 22px solid #fff;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      margin-left: 6px;
+    }
+
+    .video-container { display:none; margin-top:20px; text-align:center; }
+    .video-container video { width: 100%; max-width: 900px; border-radius: 10px; }
+
+    .community a { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-weight: bold; }
+    .community img { width: 24px; height: 24px; }
+    .logo { display:inline-block; width:64px; height:64px; background: url('logo.png') center/contain no-repeat; vertical-align: middle; margin-right:10px; }
+  </style>
 </head>
 <body>
-
+  
   <header>
-    <h1>Kanda Videos</h1>
-    <p> Congratulations!🥳💋</p>
+    <h1><span class="logo" aria-hidden="true"></span>Gaming Hub</h1>
+    <p>Step 4: Final gaming tips and pre-release videos</p>
   </header>
 
   <main>
-    <p>Welcome to Step 4 of Kanda Videos! This step highlights essential tips and insights for adult video content. Wait for the timer to find the correctly colored Continue button to proceed safely.</p>
+    <p>This is the final step where we provide exclusive insights, advanced techniques, and pre-release video content. Enjoy curated content designed to enhance your gaming skills and provide engaging experiences across multiple genres.</p>
 
-    <!-- Timer display -->
-    <div id="timer">Generating your link. This may take up to <span id="count">10</span> seconds.</div>
+    <div id="timer">Preparing your video. This may take up to <span id="count">8</span> seconds.</div>
 
+    <div class="video-wrapper">
+      <div class="preplay" id="preplay">
+        <img class="poster" src="poster.jpg" alt="Gameplay thumbnail">
+        <div class="play-overlay" id="playOverlay" title="Play video">
+          <div class="play-btn" id="playBtn" aria-hidden="true"></div>
+        </div>
+      </div>
 
-    <script async="async" data-cfasync="false" src="//foreststobaccodecember.com/82059b721a0802c6db6c59e17354e157/invoke.js"></script>
-<div id="container-82059b721a0802c6db6c59e17354e157"></div>
-    <!-- Topic 1 -->
-    <h2>1. Engaging Storylines</h2>
-    <p>Adult videos can be more enjoyable when the content follows an interesting storyline. A compelling narrative keeps viewers engaged and encourages repeated viewing, enhancing overall satisfaction and making the experience memorable.</p>
-    
-    
-      <script type="text/javascript">
-        atOptions = {
-          'key' : '9cc5b0a8ebec31118de4c89691c83925',
-          'format' : 'iframe',
-          'height' : 250,
-          'width' : 300,
-          'params' : {}
-        };
-      </script>
-      <script type="text/javascript" src="//foreststobaccodecember.com/9cc5b0a8ebec31118de4c89691c83925/invoke.js"></script>
-    
+      <div class="video-container" id="videoContainer">
+        <video id="adVideo" playsinline webkit-playsinline preload="auto"></video>
+        <video id="mainVideo" controls style="display:none;" preload="metadata">
+          <source src="../../videoxx/video4.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
 
-    <!-- Topic 2 -->
-    <h2>2. Quality and Resolution</h2>
-    <p>High-quality videos with clear resolution and proper lighting provide a better viewing experience. Attention to visual details, colors, and clarity ensures the audience stays captivated and enjoys every scene fully.</p>
+    <!-- 4 New Gaming Topics -->
+    <h2>1. Competitive Strategy & Tactics</h2>
+    <p>Top-level competitive gaming requires players to analyze opponents, anticipate moves, and adjust strategies on the fly. Studying meta-game trends, analyzing patch changes, and practicing team coordination allows gamers to maintain an advantage in tournaments and online matches. Decision-making speed and adaptability are key.</p>
 
-    
-      <script type="text/javascript">
-        atOptions = {
-          'key' : '9cc5b0a8ebec31118de4c89691c83925',
-          'format' : 'iframe',
-          'height' : 250,
-          'width' : 300,
-          'params' : {}
-        };
-      </script>
-      <script type="text/javascript" src="//foreststobaccodecember.com/9cc5b0a8ebec31118de4c89691c83925/invoke.js"></script>
-    
+    <h2>2. Advanced Crafting & Economy</h2>
+    <p>Many games include in-depth crafting systems and in-game economies. Learning to optimize crafting recipes, trading valuable resources, and balancing production can provide a major competitive edge. Efficient resource management ensures sustainable growth and unlocks rare items or equipment for enhanced gameplay experiences.</p>
 
-    <!-- Topic 3 -->
-    <h2>3. Viewer Engagement</h2>
-    <p>Engaging the audience through interactive options, polls, or additional content keeps viewers coming back. Providing diverse material and addressing viewers’ preferences improves retention and overall satisfaction.</p>
+    <h2>3. Exploration & Hidden Challenges</h2>
+    <p>Discovering hidden areas, secret quests, and rare collectibles adds layers of excitement. Mastering map navigation, puzzle-solving, and observation skills allows players to uncover content others miss. Engaging with hidden challenges also rewards creativity, curiosity, and careful exploration while maximizing in-game achievements.</p>
 
-    
-      <script type="text/javascript">
-        atOptions = {
-          'key' : '9cc5b0a8ebec31118de4c89691c83925',
-          'format' : 'iframe',
-          'height' : 250,
-          'width' : 300,
-          'params' : {}
-        };
-      </script>
-      <script type="text/javascript" src="//foreststobaccodecember.com/9cc5b0a8ebec31118de4c89691c83925/invoke.js"></script>
-    
+    <h2>4. Streaming & Community Interaction</h2>
+    <p>Streaming your gameplay not only shares experiences but also builds a community. Effective interaction with viewers, understanding chat engagement, and producing consistent content grows your following. Integrating social media, moderating communities, and hosting events help cultivate a loyal and active fanbase while promoting your gaming brand.</p>
 
     <!-- Buttons -->
     <div class="button-container">
-      <button class="button" id="fake1">Watch</button>
-      <button class="button" id="realContinue">Watch Now</button>
-      <button class="button" id="fake2">Watch</button>
+      <button class="button" id="fake1">Continue</button>
+      <button class="button" id="realContinue">Watch Video</button>
+      <button class="button" id="fake2">Continue</button>
     </div>
 
-    <!-- Community & Contact -->
+    <!-- Community -->
     <section class="community">
       <h2>Community & Contact</h2>
-      <p>If you want to stay connected, updates will be posted in our Telegram channel. For questions, suggestions, or issues, feel free to email me:</p>
+      <p>Join our gaming community for updates, discussions, and events. Reach out for suggestions or questions:</p>
       <p>
         <a href="https://www.facebook.com/share/18bbW7JyDN/" target="_blank" style="color:#3b5998;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"> Visit our Facebook Page
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"> Facebook Page
         </a>
       </p>
       <p>
         <a href="https://t.me/+uQ1AmpYXktczNzJl" target="_blank" style="color:#0088cc;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram"> Join our Telegram for more Videos
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram"> Telegram Channel
         </a>
       </p>
     </section>
@@ -231,39 +244,16 @@
   </main>
 
   <footer>
-    <p>&copy; 2025 Nepali Kanda. All rights reserved.</p>
-    <p><strong>18 U.S.C. 2257 Compliance Statement:</strong> All models appearing on this website are 18 years of age or older at the time of production. Nepali Kanda does not host or produce any videos on its servers. All videos are linked from third-party services and are publicly available.</p>
-    <p><strong>DMCA Contact:</strong> If you are a copyright holder and wish to make a removal request, please contact us at 
-      <a href="mailto:p1ussyl1over@gmail.com">nepalikanda4248@gmail.com</a>.
-    </p>
+    <p>&copy; 2025 Gaming Hub. All rights reserved.</p>
+    <p>Join our community to connect with players worldwide. PC, mobile, and cloud gaming content included.</p>
   </footer>
 
-  <!-- Smart Link Script -->
   <script>
-  // Smartlink for fake buttons (still active)
-  const smartLink = "https://foreststobaccodecember.com/ue6fbh7t?key=afd82614b701ad72363e34ad85809f94";
-
-  // Fake buttons open Smartlink
-  document.getElementById('fake1').addEventListener('click', () => {
-    window.open(smartLink, "_blank");
-  });
-  document.getElementById('fake2').addEventListener('click', () => {
-    window.open(smartLink, "_blank");
-  });
-
-  // Real Continue button (now single click)
-  const nextStep = "https://1024terabox.com/s/1bofv81De8UTw8EI8nZszdQ";
-  const realContinueBtn = document.getElementById('realContinue');
-
-  realContinueBtn.addEventListener('click', () => {
-    window.location.href = nextStep; // Directly goes to TeraBox link
-  });
-
-
-    // Timer
-    let timeLeft = 10;
+    // Timer logic
+    let timeLeft = 8;
     const countElem = document.getElementById('count');
     const timerElem = document.getElementById('timer');
+    const realContinueBtn = document.getElementById('realContinue');
     realContinueBtn.style.display = "none";
 
     const timer = setInterval(() => {
@@ -271,13 +261,40 @@
       countElem.textContent = timeLeft;
       if(timeLeft <= 0){
         clearInterval(timer);
-        timerElem.textContent = "Scroll down and find the yellow Continue button!";
-        timerElem.style.color = "#ffcc00";
+        timerElem.textContent = "Click the orange button to watch!";
+        timerElem.style.color = "#ff8c00";
         realContinueBtn.style.display = "block";
       }
-    }, 1400);
+    }, 1300);
+
+    // Buttons fake link
+    const fakeLink = "#";
+    document.getElementById('fake1').addEventListener('click', ()=> window.open(fakeLink,"_blank"));
+    document.getElementById('fake2').addEventListener('click', ()=> window.open(fakeLink,"_blank"));
+
+    // Real Continue Button → TeraBox link
+    realContinueBtn.addEventListener('click', ()=> {
+      window.location.href = "https://terabox.com/your_video_link_here";
+    });
+
+    // Pre-roll + main video logic
+    const preplay = document.getElementById('preplay');
+    const videoContainer = document.getElementById('videoContainer');
+    const adVideo = document.getElementById('adVideo');
+    const mainVideo = document.getElementById('mainVideo');
+
+    preplay.addEventListener('click', ()=>{
+      preplay.style.display = 'none';
+      videoContainer.style.display = 'block';
+      adVideo.src = "preroll.mp4"; 
+      adVideo.play();
+      adVideo.onended = ()=>{
+        adVideo.style.display = 'none';
+        mainVideo.style.display = 'block';
+        mainVideo.play();
+      }
+    });
   </script>
-  <script type='text/javascript' src='//foreststobaccodecember.com/64/fc/f3/64fcf31361724f7ae6d406a6e1d14764.js'></script>
 
 </body>
 </html>
