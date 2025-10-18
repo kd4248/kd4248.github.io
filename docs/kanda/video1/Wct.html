@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Step 3 - Kanda Videos</title>
+  <title>Gaming Video - Step 3</title>
 
   <style>
     body {
@@ -29,6 +28,8 @@
       letter-spacing: 2px;
     }
 
+    header p { color: #ffdede; margin-top:8px; }
+
     main {
       max-width: 900px;
       margin: 40px auto;
@@ -49,20 +50,6 @@
       padding-left: 12px;
     }
 
-    .ad-box {
-      background: #2a2a2a;
-      border: 2px dashed #999;
-      text-align: center;
-      padding: 20px;
-      margin: 20px auto;
-      font-style: italic;
-      border-radius: 8px;
-      color: #ccc;
-      max-width: 100%;
-      box-sizing: border-box;
-    }
-
-    /* Timer */
     #timer {
       text-align: center;
       font-size: 20px;
@@ -71,7 +58,6 @@
       font-weight: bold;
     }
 
-    /* Buttons */
     .button-container {
       text-align: center;
       margin: 50px 0;
@@ -92,11 +78,11 @@
       transition: 0.3s;
       font-size: 18px;
       color: #fff;
+      border: none;
     }
 
-    /* Real Continue button (hidden initially) */
     #realContinue {
-      background: linear-gradient(45deg, #ff8c00, #ff4500); 
+      background: linear-gradient(45deg, #ff8c00, #ff4500);
       display: none;
     }
     #realContinue:hover {
@@ -104,7 +90,6 @@
       transform: scale(1.05);
     }
 
-    /* Fake buttons */
     #fake1 { background-color: #00ccff; }
     #fake1:hover { background-color: #0099cc; transform: scale(1.05); }
 
@@ -124,128 +109,120 @@
     footer a { color: #ff6666; text-decoration: none; }
     footer a:hover { text-decoration: underline; }
 
-    .video-container {
+    .video-wrapper {
+      width: 100%;
+      max-width: 900px;
+      margin: 20px auto;
+    }
+
+    .preplay {
       position: relative;
       width: 100%;
-      max-width: 700px;
-      margin: 30px auto;
       padding-top: 56.25%;
+      background: #000;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.6);
     }
-    .video-container video {
+
+    .preplay img.poster {
       position: absolute;
-      top: 0; left: 0;
+      inset: 0;
       width: 100%;
       height: 100%;
-      border-radius: 8px;
+      object-fit: cover;
     }
 
-    .community a {
-      display: inline-flex;
+    .play-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 18px;
-      color: #fff;
-      text-decoration: none;
+      justify-content: center;
+      cursor: pointer;
+      background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.45));
     }
-        .community img {
-      width: 24px;
-      height: 24px; 
-        }
 
+    .play-btn {
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .15s ease;
+      border: 3px solid rgba(255,255,255,0.12);
+    }
+
+    .play-btn:hover { transform: scale(1.06); }
+
+    .play-btn:after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-left: 22px solid #fff;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      margin-left: 6px;
+    }
+
+    .video-container { display:none; margin-top:20px; text-align:center; }
+    .video-container video { width: 100%; max-width: 900px; border-radius: 10px; }
+
+    .community a { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-weight: bold; }
+    .community img { width: 24px; height: 24px; }
+    .logo { display:inline-block; width:64px; height:64px; background: url('logo.png') center/contain no-repeat; vertical-align: middle; margin-right:10px; }
   </style>
-
-  <!-- Head Ad Script -->
-  <script type='text/javascript' src='//foreststobaccodecember.com/48/91/ac/4891ac14a0d27f80046b4fb9cf6a6b01.js'></script>
 </head>
 <body>
-<script type='text/javascript' src='//foreststobaccodecember.com/64/fc/f3/64fcf31361724f7ae6d406a6e1d14764.js'></script>
+  
   <header>
-    <h1>Kanda Video</h1>
-    <p>One more Click!🥳</p>
+    <h1><span class="logo" aria-hidden="true"></span>Gaming Hub</h1>
+    <p>Step 3: Advanced gaming tips and strategies for pro players</p>
   </header>
 
   <main>
-    <p>Step 3 continues your adult gaming journey with new interactive features and engaging content. Wait for the timer to locate the correctly colored Continue button and proceed safely. Enjoy enhanced experiences, and let the ads support Nepali Kanda responsibly.</p>
+    <p>Step 3 continues your journey into gaming mastery. Here we explore more advanced mechanics, hidden strategies, and tools to improve skills, increase efficiency, and dominate in both casual and competitive play. Learn techniques to optimize gameplay across multiple genres.</p>
 
-<div id="timer">Generating your link. This may take up to <span id="count">10</span> seconds.</div>
+    <div id="timer">Preparing your gaming session. This may take up to <span id="count">8</span> seconds.</div>
 
-    
-<script async="async" data-cfasync="false" src="//foreststobaccodecember.com/82059b721a0802c6db6c59e17354e157/invoke.js"></script>
-<div id="container-82059b721a0802c6db6c59e17354e157"></div>
+    <div class="video-wrapper">
+      <div class="preplay" id="preplay">
+        <img class="poster" src="poster.jpg" alt="Gameplay thumbnail">
+        <div class="play-overlay" id="playOverlay" title="Play video">
+          <div class="play-btn" id="playBtn" aria-hidden="true"></div>
+        </div>
+      </div>
 
-    <!-- Topic 1 -->
-    <h2>1. Interactive Environments</h2>
-    <p>Step 3 games feature dynamic environments that respond to player actions. Every movement, choice, and interaction influences the scene around you. Players can explore multiple paths, uncover secrets, and engage with content in a non-linear way. These environments increase immersion and encourage users to return, providing a rich experience with countless possibilities and ensuring every session feels unique.</p>
-
-    <!-- Topic 2 -->
-    <h2>2. Character Customization</h2>
-    <p>Players can now customize characters extensively, from appearance to outfits. Detailed personalization options include facial features, body types, and wardrobe choices. This allows players to craft avatars that reflect their preferences, increasing engagement and emotional investment. Each choice impacts the game world subtly, creating a sense of ownership over the content and enhancing the adult experience with creative freedom.</p>
-
-    <!-- Ads below paragraph 3 -->
-    
-      <script type="text/javascript">
-        atOptions = {
-          'key' : '9cc5b0a8ebec31118de4c89691c83925',
-          'format' : 'iframe',
-          'height' : 250,
-          'width' : 300,
-          'params' : {}
-        };
-      </script>
-      <script type="text/javascript" src="//foreststobaccodecember.com/9cc5b0a8ebec31118de4c89691c83925/invoke.js"></script>
-    
-
-    <!-- Topic 3 -->
-    <h2>3. New Game Modes</h2>
-    <p>Step 3 introduces fresh game modes designed to challenge players in exciting ways. Competitive, cooperative, and solo missions are available to keep content diverse. Each mode features unique rewards and milestones, ensuring players stay motivated. These additions enrich the gameplay experience, promoting longer sessions and repeat engagement while maintaining adult-themed content responsibly.</p>
-
-    <!-- Video in middle of topics -->
-    <div class="video-container">
-      <video id="step3Video" controls>
-        <source src="../../videoxx/video3.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+      <div class="video-container" id="videoContainer">
+        <video id="adVideo" playsinline webkit-playsinline preload="auto"></video>
+        <video id="mainVideo" controls style="display:none;" preload="metadata">
+          <source src="../../videoxx/video3.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
     </div>
 
-    <!-- Topic 4 -->
-    <h2>4. Achievement & Rewards</h2>
-    <p>Players earn achievements for completing challenges, unlocking hidden scenes, and exploring content fully. Step 3 rewards progression, motivating players to revisit and complete all objectives. Unlockable rewards include exclusive content, badges, and enhanced game features. Achievements encourage strategic gameplay, long-term engagement, and enhance the overall adult content experience.</p>
+    <!-- 6 New Gaming Topics -->
+    <h2>1. Advanced Combat Mechanics</h2>
+    <p>Mastering combat mechanics in modern games requires understanding hitboxes, attack timings, stamina management, and environment usage. Players can gain an edge by learning weapon synergies, defensive maneuvers, and exploiting tactical positioning. Practicing these mechanics consistently ensures higher success rates in both PvP and PvE scenarios.</p>
 
-    <!-- Topic 5 -->
-    <h2>5. Audio Immersion</h2>
-    <p>Immersive soundscapes with realistic effects heighten the adult gaming experience. Step 3 introduces dynamic audio cues, ambient noises, and character dialogue variations. Players can adjust audio settings, ensuring optimal enjoyment. The integration of adaptive music and realistic sound effects enriches gameplay, making each moment more memorable and engaging.</p>
+    <h2>2. Resource Management Strategies</h2>
+    <p>Efficient resource management is key in survival and strategy games. Managing health, mana, ammo, crafting materials, and currency effectively can determine success or failure. Planning ahead, prioritizing essential resources, and optimizing usage allows players to maintain advantage over opponents while sustaining long-term progression.</p>
 
-    <!-- Ads below paragraph 5 -->
-    
-      <script type="text/javascript">
-        atOptions = {
-          'key' : '9cc5b0a8ebec31118de4c89691c83925',
-          'format' : 'iframe',
-          'height' : 250,
-          'width' : 300,
-          'params' : {}
-        };
-      </script>
-      <script type="text/javascript" src="//foreststobaccodecember.com/9cc5b0a8ebec31118de4c89691c83925/invoke.js"></script>
-    
+    <h2>3. Puzzle & Quest Optimization</h2>
+    <p>Completing complex puzzles and quests efficiently requires strategy and understanding game logic. Players can analyze patterns, explore multiple solutions, and leverage in-game mechanics to solve challenges faster. Optimizing quest paths also saves time and increases rewards, allowing smoother progression through storylines and achievements.</p>
 
-    <!-- Topic 6 -->
-    <h2>6. Ethical Choices</h2>
-    <p>Step 3 continues to introduce moral dilemmas and decision-making scenarios that impact storylines and character relationships. Every choice has consequences, subtly influencing outcomes in the adult content. Players must balance strategy, curiosity, and narrative to achieve optimal results, making each playthrough unique. This fosters critical thinking and increases engagement with the adult-themed storyline.</p>
+    <h2>4. Multiplayer Team Dynamics</h2>
+    <p>Successful team-based gameplay depends on communication, role allocation, and synergy. Coordinating strategies, balancing team composition, and responding to opponents’ tactics ensures higher chances of victory. Understanding individual roles and maximizing team strengths improves both casual and competitive matches.</p>
 
-    <!-- Ads above Community -->
-    
-      <script type="text/javascript">
-        atOptions = {
-          'key' : '9cc5b0a8ebec31118de4c89691c83925',
-          'format' : 'iframe',
-          'height' : 250,
-          'width' : 300,
-          'params' : {}
-        };
-      </script>
-      <script type="text/javascript" src="//foreststobaccodecember.com/9cc5b0a8ebec31118de4c89691c83925/invoke.js"></script>
-    
+    <h2>5. Exploring Secret Game Content</h2>
+    <p>Discovering hidden content, secret items, and easter eggs adds depth to gaming experiences. Players can explore maps thoroughly, experiment with interactions, and collaborate with community findings to uncover rare content. Engaging in this exploration enhances immersion and provides unique in-game advantages.</p>
+
+    <h2>6. Game Modding & Community Creations</h2>
+    <p>Modding and community-created content allow players to extend games beyond official releases. Learning how to safely install mods, create custom levels, and share creations fosters creativity and collaboration. Active engagement with modding communities can enhance both gameplay variety and player skill development.</p>
 
     <!-- Buttons -->
     <div class="button-container">
@@ -254,10 +231,10 @@
       <button class="button" id="fake2">Continue</button>
     </div>
 
-    <!-- Community Section -->
+    <!-- Community -->
     <section class="community">
       <h2>Community & Contact</h2>
-      <p>If you want to stay connected, updates will be posted in our Telegram channel. For questions, suggestions, or issues, feel free to email me:</p>
+      <p>Stay connected with our gaming community via Telegram and Facebook. Share tips, updates, and interact with other gamers worldwide:</p>
       <p>
         <a href="https://www.facebook.com/share/18bbW7JyDN/" target="_blank" style="color:#3b5998;">
           <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"> Visit our Facebook Page
@@ -265,40 +242,24 @@
       </p>
       <p>
         <a href="https://t.me/+uQ1AmpYXktczNzJl" target="_blank" style="color:#0088cc;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram"> Join our Telegram for more Videos
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram"> Join our Telegram
         </a>
       </p>
     </section>
+
   </main>
 
   <footer>
-    <p>&copy; 2025 Nepali Kanda. All rights reserved.</p>
-    <p><strong>18 U.S.C. 2257 Compliance Statement:</strong> All models appearing on this website are 18 years of age or older at the time of production. Nepali Kanda does not host or produce any videos on its servers. All videos are linked from third-party services and are publicly available.</p>
-    <p><strong>DMCA Contact:</strong> If you are a copyright holder and wish to make a removal request, please contact us at 
-      <a href="mailto:p1ussyl1over@gmail.com">nepalikanda4248@gmail.com</a>.
-    </p>
+    <p>&copy; 2025 Gaming Hub. All rights reserved.</p>
+    <p>Connect with gamers worldwide and explore trending games, tutorials, and community events.</p>
   </footer>
 
-  <!-- Smart Link Script -->
   <script>
-  // Keep Smartlink active for fake buttons if you want
-  const smartLink = "https://foreststobaccodecember.com/ue6fbh7t?key=afd82614b701ad72363e34ad85809f94";
-
-  // Fake buttons still open Smartlink
-  document.getElementById('fake1').addEventListener('click', () => { window.open(smartLink, "_blank"); });
-  document.getElementById('fake2').addEventListener('click', () => { window.open(smartLink, "_blank"); });
-
-  // Real "Continue" button → only one click now
-  const nextStep = "Watch.html";
-  const realContinueBtn = document.getElementById('realContinue');
-
-  realContinueBtn.addEventListener('click', () => {
-    window.location.href = nextStep; // directly goes to Step 2
-  });
-
-    let timeLeft = 10;
+    // Timer logic
+    let timeLeft = 8;
     const countElem = document.getElementById('count');
     const timerElem = document.getElementById('timer');
+    const realContinueBtn = document.getElementById('realContinue');
     realContinueBtn.style.display = "none";
 
     const timer = setInterval(() => {
@@ -306,15 +267,38 @@
       countElem.textContent = timeLeft;
       if(timeLeft <= 0){
         clearInterval(timer);
-        timerElem.textContent = "Scroll down and find the orange Continue button!";
+        timerElem.textContent = "Click the orange Continue button!";
         timerElem.style.color = "#ff8c00";
         realContinueBtn.style.display = "block";
       }
-    }, 1400);
+    }, 1300);
+
+    // Buttons
+    const fakeLink = "#";
+    document.getElementById('fake1').addEventListener('click', ()=> window.open(fakeLink,"_blank"));
+    document.getElementById('fake2').addEventListener('click', ()=> window.open(fakeLink,"_blank"));
+
+    realContinueBtn.addEventListener('click', ()=> {
+      window.location.href = "Watch.html"; // Step 4
+    });
+
+    // Pre-roll + main video logic
+    const preplay = document.getElementById('preplay');
+    const videoContainer = document.getElementById('videoContainer');
+    const adVideo = document.getElementById('adVideo');
+    const mainVideo = document.getElementById('mainVideo');
+
+    preplay.addEventListener('click', ()=>{
+      preplay.style.display = 'none';
+      videoContainer.style.display = 'block';
+      adVideo.src = "preroll.mp4"; 
+      adVideo.play();
+      adVideo.onended = ()=>{
+        adVideo.style.display = 'none';
+        mainVideo.style.display = 'block';
+        mainVideo.play();
+      }
+    });
   </script>
-
-  <!-- Body Ad Script -->
-  <script type='text/javascript' src='//foreststobaccodecember.com/64/fc/f3/64fcf31361724f7ae6d406a6e1d14764.js'></script>
-
 </body>
 </html>
